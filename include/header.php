@@ -1,4 +1,6 @@
+<html lang="fr">
 <header>
-    <a href="connexion.php">Connexion</a>
-    
+    <img id="logginImg" src="image/Icone_Connexion.png"/>
+    <?php include_once("sign_in.php") ?>
+
 </header>
