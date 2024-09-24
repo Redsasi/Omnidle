@@ -1,10 +1,10 @@
 <div id="connexion" class="hidden">
-        <label for="email">Email : </label>
-        <input type="text" id="email" name="email">
-        <label for="password">Password : </label>
-        <input type="password" id="password" name="password">
-        <button>connexion</button>
-        <a href="inscription.php">create an account</a>
+        <label for="login_email">Email : </label>
+        <input type="text" id="login_email" name="login_email">
+        <label for="login_password">Password : </label>
+        <input type="password" id="login_password" name="login_password">
+        <button id="btn_login">Login</button>
+        <a href="singin.php">create an account</a>
         <script>
             //hide and show the connexion box
             //https://stackoverflow.com/questions/33060993/click-outside-div-to-hide-div-in-pure-javascript
@@ -29,7 +29,7 @@
                     if (jsonData.success) {
                         alert(jsonData.message);
                     }else{
-                        alert(jsonData.message);
+                        alert(jsonData.error);
                         input_email.value = NULL;
                         input_motdepass.value = NULL;
                     }

@@ -7,7 +7,6 @@
   <body>
   <?php include_once("include/header.php");?>
   <?php include_once("include/nav.php");?>
-  <?php include_once("include/connexion.php");?>
       <main>
   <?php
     echo password_hash("pass1234", PASSWORD_DEFAULT);
