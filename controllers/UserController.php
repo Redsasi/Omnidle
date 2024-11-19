@@ -10,12 +10,6 @@ class UserController {
         $this->model = new UserModel();
     }
 
-    // Revient au menu principal
-    public function index() {
-        $posts = $this->model->readAll();
-        require '../views/index.php';
-    }
-
     // Créer un utilisateur
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -26,27 +20,8 @@ class UserController {
             $this->model->creat($pseudo, $email, $hashPass);
             header("Location: ". ROOT_URL);
         } else {
-            require '../views/user/Signin.php';
+            require '../view/user/signin.php';
         }
-    }
-
-    // Modifier un article
-    public function edit($id) {
-        $post = $this->model->readById($id);
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $this->model->update($id, $title, $content);
-            header("Location: ". ROOT_URL);
-        } else {
-            require '../views/blog/edit.php';
-        }
-    }
-
-    // Supprimer un article
-    public function delete($id) {
-        $this->model->delete($id);
-        header("Location: ". ROOT_URL);
     }
 }
 ?>

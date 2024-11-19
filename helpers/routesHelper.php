@@ -5,7 +5,7 @@ define('ROOT_URL', getRootUrl()); // root url
 $routerURL = ROOT_URL . "index.php?"; // main menu
 
 // USER
-define('ACTION_CREATE_USER', "create");
+define('ACTION_CREATE_USER', "createUser");
 
 define('URL_CREATE_USER', $routerURL . 'action=' . ACTION_CREATE_USER);
 

@@ -1,5 +1,5 @@
 <?php
-
+require '../config/Database.php';
 abstract class Model{
     protected $db;
     
