@@ -6,15 +6,16 @@
       <link href="style.css" rel="stylesheet" /> 
    </head>
    <body>
-    <form action="<?=URL_CREATE_USER?>" method="post">
-        <label for="Username">UserName</label>
-        <input type="text" name="Username" required>
+    <form action="<?=URL_USER_SINGUP?>" method="post">
+        <label for="pseudo">Pseudo</label>
+        <input type="text" name="pseudo" required>
         
-        <label for="email">Titre</label>
+        <label for="email">Email</label>
         <input type="text" name="email" required>
         
-        <label for="password">Titre</label>
+        <label for="password">Mot de pass</label>
         <input type="password" name="password" required>
+        <button type="submit">envoyer</button>
     </form>
    </body>
 </html>

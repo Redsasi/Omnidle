@@ -5,9 +5,13 @@ define('ROOT_URL', getRootUrl()); // root url
 $routerURL = ROOT_URL . "index.php?"; // main menu
 
 // USER
-define('ACTION_CREATE_USER', "createUser");
+define('ACTION_USER_SINGUP', "userSingup");
+define('ACTION_USER_LOGIN', "userLogin");
+define('ACTION_USER_LOGOUT', "userLogout");
 
-define('URL_CREATE_USER', $routerURL . 'action=' . ACTION_CREATE_USER);
+define('URL_USER_SINGUP', $routerURL . 'action=' . ACTION_USER_SINGUP);
+define('URL_USER_LOGIN', $routerURL . 'action=' . ACTION_USER_LOGIN);
+define('URL_USER_LOGOUT', $routerURL . 'action=' . ACTION_USER_LOGOUT);
 
 
 
@@ -24,4 +28,3 @@ function getRootUrl() {
     // Combine to get the full root URL
     return $protocol . $host . $scriptPath;
 }
-?>

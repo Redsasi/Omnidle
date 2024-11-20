@@ -9,10 +9,19 @@ body{
 
 /* HEADER */
 header{
+    height: 10%;
     display: flex;
     justify-content: space-around;
     background-color: #222;
     color: #FED;
+}
+
+/* user */
+.userMenu{
+    height: 100%;
+}
+.userMenu img{
+    height: 5em;
 }
 /* NAVIGATION */
 header nav ul{
@@ -32,7 +41,7 @@ nav a {
     text-decoration: none;
 }
 
-header nav a:hover{
+header a:hover{
     background-color: #555;
 }
 
@@ -61,4 +70,4 @@ header nav a:hover{
 
 li.dropdown {
     display: inline-block;
-  } 
+} 
