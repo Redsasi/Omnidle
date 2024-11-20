@@ -1,5 +1,5 @@
 <?php
-require '../models/model.php';
+require_once '../models/model.php';
 
 class UserModel extends Model{
     private $table_name = "OD_USER";

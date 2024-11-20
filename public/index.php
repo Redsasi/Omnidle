@@ -5,7 +5,7 @@ require_once '../helpers/routesHelper.php';
 require_once '../controllers/userController.php';
 require_once '../controllers/dleGameController.php';
 
-$UserControl = new UserController();
+$userControl = new UserController();
 $dleGameControl = new dleGameController();
 
 
@@ -13,11 +13,21 @@ $dleGameControl = new dleGameController();
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case ACTION_USER_SINGUP:
-            $UserControl->singUp();
+            $userControl->singUp();
             break;
+
         case ACTION_USER_LOGIN:
-            $UserControl->login();
+            $userControl->login();
             break;
+
+        case ACTION_USER_LOGOUT:
+            $userControl->logout();
+            break;
+                
+        case ACTION_DLEGAME_CREATE:
+            $dleGameControl->creat();
+            break;
+
         default:
             $dleGameControl->index();
             break;

@@ -4,14 +4,7 @@
     <nav>
     <div>
         <ul>
-            <li class="dropdown">
-                <a href="#">User &#x25BC;</a>
-                <div class="dropdown-content">
-                    <a href="<?=URL_USER_LOGIN?>">Login</a>
-                    <a href="<?=URL_USER_SINGUP?>">Singup</a>
-                </div>
-            </li>
-            <li><a href="#">User</a></li>
+            <li><a href="<?=URL_DLEGAME_CREATE?>">Creat a new Quizz</a></li>
             <li><a href="#">Likn 6</a></li>
         </ul>
     </nav>
