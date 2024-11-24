@@ -82,6 +82,7 @@ li.dropdown {
     gap: 1em;
     
 }
+
 .quizzDisplay{
     display: flex;
     flex-direction: column;
