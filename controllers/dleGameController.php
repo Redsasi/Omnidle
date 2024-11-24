@@ -44,6 +44,7 @@ class dleGameController {
             $description = $_POST['description'];
             $userId = $_SESSION['userId'];
             $this->model->creat($name, $image, $description, $userId);
+            header("Location: ". URL_QUIZZES_DISPLAY_USER);
         }else{
             $this->displayHeader();
             require '../view/dleGame/quizzCreate.php';
