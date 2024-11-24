@@ -14,17 +14,15 @@ define('URL_USER_LOGIN', $routerURL . 'action=' . ACTION_USER_LOGIN);
 define('URL_USER_LOGOUT', $routerURL . 'action=' . ACTION_USER_LOGOUT);
 
 // DLEGAME
-define('ACTION_DLEGAME_CREATE', "dleGameCreate");
-define('ACTION_DLEGAME_READALL', "dleGameReadAll");
-define('ACTION_DLEGAME_READMINE', "dleGameReadMine");
-define('ACTION_DLEGAME_UPDATE', "dleGameUpdate");
-define('ACTION_DLEGAME_DELETE', "dleGameDelete");
+define('ACTION_QUIZZES_CREATE', "dleGameCreate");
+define('ACTION_QUIZZES_DISPLAY_ALL', "DisplayQuizzAll");
+define('ACTION_QUIZZES_DISPLAY_USER', "DisplayQuizzUser");
+define('ACTION_QUIZZES_UPDATE', "updateQuizz");
 
-define('URL_DLEGAME_CREATE', $routerURL . 'action=' . ACTION_DLEGAME_CREATE);
-define('URL_DLEGAME_READALL', $routerURL . 'action=' . ACTION_DLEGAME_READALL);
-define('URL_DLEGAME_READMINE', $routerURL . 'action=' . ACTION_DLEGAME_READMINE);
-define('URL_DLEGAME_UPDATE', $routerURL . 'action=' . ACTION_DLEGAME_UPDATE);
-define('URL_DLEGAME_DELETE', $routerURL . 'action=' . ACTION_DLEGAME_DELETE);
+define('URL_QUIZZES_CREATE', $routerURL . 'action=' . ACTION_QUIZZES_CREATE);
+define('URL_QUIZZES_DISPLAY_ALL', $routerURL . 'action=' . ACTION_QUIZZES_DISPLAY_ALL);
+define('URL_QUIZZES_DISPLAY_USER', $routerURL . 'action=' . ACTION_QUIZZES_DISPLAY_USER);
+define('URL_QUIZZES_UPDATE', $routerURL . 'action=' . ACTION_QUIZZES_UPDATE);
 
 
 function getRootUrl() {

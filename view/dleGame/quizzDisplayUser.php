@@ -13,6 +13,10 @@
             <h1><?=$quizz['QUIZZ_NAME']?></h1>
             <img src="data:image/png;base64,<?=base64_encode($quizz["QUIZZ_IMAGE"])?>" alt="<?=$quizz['QUIZZ_NAME']?>">
             <p><?=$quizz['QUIZZ_DESCRIPTION']?></p>
+            <div class="quizzAction">
+               <a href="<?=URL_QUIZZES_UPDATE?>&id=<?=$quizz["QUIZZ_ID"]?>"><button>Updage</button></a>
+               <a><button>Delete</button></a>
+            </div>
          </div>
          <?php endforeach; ?>
       </div>

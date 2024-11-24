@@ -10,11 +10,21 @@ class dleGameController {
         $this->model = new DleGameModel();
     }
 
+    public function displayHeader(){
+        if(isset($_SESSION["userId"])){
+            require '../view/layout/headerLogin.php';
+        }else{
+            require '../view/layout/headerLogout.php';
+        }
+    }
+    
     // Revient au menu principal
     public function index() {
-        $posts = $this->model->readAll();
+        $this->displayHeader();
+        $quizzes = $this->model->readAll();
         require '../view/index.php';
     }
+
 
     public function creat(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,10 +37,28 @@ class dleGameController {
             $name = $_POST['name'];
             $description = $_POST['description'];
             $userId = $_SESSION['userId'];
-            echo "DEBUG befor calling model";
             $this->model->creat($name, $image, $description, $userId);
         }else{
+            $this->displayHeader();
             require '../view/dleGame/quizzCreate.php';
+        }
+    }
+
+    public function displayQuizzUser(){
+        if(isset($_SESSION['userId'])){
+            $this->displayHeader();
+            $quizzes = $this->model->readByUserId($_SESSION['userId']);
+            require '../view/dleGame/quizzDisplayUser.php';
+        }else{
+            header("Location: ". URL_USER_LOGIN);
+        }
+    }
+    public function updateQuizz(){
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        }else{
+            $this->displayHeader();
+            require '../view/dleGame/quizzUpdate.php';
         }
     }
 }

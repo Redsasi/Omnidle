@@ -6,9 +6,7 @@
       <link href="style.css" rel="stylesheet" /> 
    </head>
    <body>
-      <?php include '../view/layout/header.php' ?>
-      
-      <form action="<?=URL_DLEGAME_CREATE?>" method="post" enctype="multipart/form-data">
+      <form action="<?=URL_QUIZZES_CREATE?>" method="post" enctype="multipart/form-data">
          <label for="name">Name</label>
          <input type="text" name="name" required>
          

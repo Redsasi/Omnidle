@@ -24,10 +24,20 @@ if (isset($_GET['action'])) {
             $userControl->logout();
             break;
                 
-        case ACTION_DLEGAME_CREATE:
+        case ACTION_QUIZZES_CREATE:
             $dleGameControl->creat();
             break;
 
+        case ACTION_QUIZZES_DISPLAY_USER:
+            $dleGameControl->displayQuizzUser();
+            break;
+
+        case ACTION_QUIZZES_UPDATE:
+            $dleGameControl->updateQuizz();
+            break;
+    
+
+        case ACTION_QUIZZES_DISPLAY_ALL:
         default:
             $dleGameControl->index();
             break;
