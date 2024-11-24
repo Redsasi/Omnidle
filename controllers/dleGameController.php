@@ -29,7 +29,7 @@ class dleGameController {
 
     //creation d'un nouveau quizz
     public function creat(){
-        if(isset($_SESSION['userId'])){//si l'utilisateur n'est pas connecter affiche la page de connexion
+        if(!isset($_SESSION['userId'])){//si l'utilisateur n'est pas connecter affiche la page de connexion
             header("Location: ". URL_USER_LOGIN);
             exit();
         }
