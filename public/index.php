@@ -35,6 +35,10 @@ if (isset($_GET['action'])) {
         case ACTION_QUIZZES_UPDATE:
             $dleGameControl->updateQuizz();
             break;
+
+        case ACTION_QUIZZES_DELETE:
+            $dleGameControl->deleteQuizz();
+            break;
     
         case ACTION_QUIZZES_DISPLAY_ALL:
         default:

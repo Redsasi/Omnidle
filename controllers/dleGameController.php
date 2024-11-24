@@ -80,5 +80,20 @@ class dleGameController {
         $quizz = $this->model->readQuizzById($_GET['quizzId']);
         require '../view/dleGame/quizzUpdate.php';
     }
+
+    public function deleteQuizz(){
+        if(!isset($_GET['quizzId']) && empty($_GET['quizzId'])){
+            header("Location: ". URL_QUIZZES_DISPLAY_USER);
+            exit();
+        }
+        $quizz = $this->model->readQuizzById($_GET['quizzId']);
+        if(isset($_SESSION['userId']) && $_SESSION['userId'] == $quizz['USER_ID']){
+            $this->model->deletById($_GET['quizzId']);
+        }else{
+            echo "ERROR you don't own this quizz";
+            exit();
+        }
+        header("Location: ". URL_QUIZZES_DISPLAY_USER);
+    }
 }
 ?>
