@@ -1,7 +1,7 @@
 <?php
 // controllers/UserController.php
 
-require_once '../models/UserModel.php';
+require_once '../models/userModel.php';
 
 class UserController {
     private $model;
@@ -30,7 +30,7 @@ class UserController {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = $this->model->readByEmail($email);
-            if(password_verify($password,$user['USER_PASSWORD'])){
+            if($user != null && password_verify($password,$user['USER_PASSWORD'])){
                 session_start();
                 $_SESSION["userId"] = $user['USER_ID'];
                 header("Location: ". ROOT_URL);
@@ -42,7 +42,7 @@ class UserController {
         }
     }
 
-    // connexion
+    // deconnexion
     public function logout() {
         unset($_SESSION["userId"]);
         header("Location: ". ROOT_URL);
