@@ -21,7 +21,7 @@ class DleGameModel extends Model{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function readQuizzById($quizzId){
-        $query = "SELECT * FROM " . $this->table_name . "WHERE QUIZZ_ID = :quizzId";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE QUIZZ_ID = :quizzId";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":quizzId", $quizzId);
         $stmt->execute();
@@ -36,7 +36,7 @@ class DleGameModel extends Model{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    public function updateById($quizzId, $name, $image, $description){        
+    public function updateByIdImage($quizzId, $name, $image, $description){        
         $query = "UPDATE " . $this->table_name . " set QUIZZ_NAME = :name, QUIZZ_IMAGE = :image, QUIZZ_DESCRIPTION = :description WHERE QUIZZ_ID = :quizzId";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":name", $name);
@@ -45,19 +45,20 @@ class DleGameModel extends Model{
         $stmt->bindParam(":quizzId", $quizzId);
         $stmt->execute();
     }
+    public function updateById($quizzId, $name, $description){
+        $query = "UPDATE " . $this->table_name . " set QUIZZ_NAME = :name, QUIZZ_DESCRIPTION = :description WHERE QUIZZ_ID = :quizzId";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":description", $description);
+        $stmt->bindParam(":quizzId", $quizzId);
+        $stmt->execute();
+    }
 
-    public function deletById(){
-
+    public function deletById($quizzId){
+        $query = "DELETE FROM " . $this->table_name . " WHERE QUIZZ_ID = :quizzId";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":quizzId", $quizzId);
+        $stmt->execute();
     }
     
 }
-/*update 
-      od_quizz 
-    set 
-      QUIZZ_NAME = QUIZZ_NAME,
-      QUIZZ_IMAGE = QUIZZ_IMAGE,
-      QUIZZ_DESCRIPTION = QUIZZ_DESCRIPTION,
-      USER_ID = USER_ID
-    where 
-      QUIZZ_ID = 'QUIZZ_ID';
-      */

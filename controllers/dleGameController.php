@@ -54,12 +54,31 @@ class dleGameController {
         }
     }
     public function updateQuizz(){
+        if(!isset($_GET['quizzId']) && empty($_GET['quizzId'])){
+            header("Location: ". URL_QUIZZES_DISPLAY_USER);
+            exit();
+        }
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        }else{
-            $this->displayHeader();
-            require '../view/dleGame/quizzUpdate.php';
+            if(isset($_POST['name']) || !empty($_POST['name']) ||
+            isset($_POST['description']) || !empty($_POST['description'])){
+                $name = $_POST['name'];
+                $description = $_POST['description'];
+                if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+                    $imageFile = $_FILES['image']['tmp_name'];
+                    $image = file_get_contents($imageFile);
+                    $this->model->updateByIdImage($_GET['quizzId'], $name, $image, $description);
+                }else{
+                    $this->model->updateById($_GET['quizzId'], $name, $description);
+                }
+                header("Location: ". URL_QUIZZES_DISPLAY_USER);
+                exit();
+            }
+            
         }
+        $this->displayHeader();
+        $quizz = $this->model->readQuizzById($_GET['quizzId']);
+        require '../view/dleGame/quizzUpdate.php';
     }
 }
 ?>

@@ -36,7 +36,6 @@ if (isset($_GET['action'])) {
             $dleGameControl->updateQuizz();
             break;
     
-
         case ACTION_QUIZZES_DISPLAY_ALL:
         default:
             $dleGameControl->index();
