@@ -14,7 +14,7 @@
             <img src="data:image/png;base64,<?=base64_encode($quizz["QUIZZ_IMAGE"])?>" alt="<?=$quizz['QUIZZ_NAME']?>">
             <p><?=$quizz['QUIZZ_DESCRIPTION']?></p>
             <div class="quizzAction">
-               <a href="<?=URL_QUIZZES_UPDATE?>&quizzId=<?=$quizz["QUIZZ_ID"]?>"><button>Updage</button></a>
+               <a href="<?=URL_QUIZZES_UPDATE?>&quizzId=<?=$quizz["QUIZZ_ID"]?>"><button>Update</button></a>
                <a href="<?=URL_QUIZZES_DELETE?>&quizzId=<?=$quizz["QUIZZ_ID"]?>"><button>Delete</button></a>
             </div>
          </div>
