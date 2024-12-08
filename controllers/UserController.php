@@ -36,6 +36,7 @@ class UserController {
                 header("Location: ". ROOT_URL);
             }else{
                 require '../view/user/login.php'; //TODO : Display error message
+                ?><script>openPopup('ERROR','Username or password incorrect',5000);</script><?php
             }
         } else {
             require '../view/user/login.php';

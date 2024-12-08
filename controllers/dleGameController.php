@@ -10,18 +10,8 @@ class dleGameController {
         $this->model = new DleGameModel();
     }
 
-    //affiche l'entete suivant si il est connecter
-    public function displayHeader(){
-        if(isset($_SESSION["userId"])){
-            require '../view/layout/headerLogin.php';
-        }else{
-            require '../view/layout/headerLogout.php';
-        }
-    }
-    
     // Revient au menu principal
     public function index() {
-        $this->displayHeader();
         $quizzes = $this->model->readAll();
         require '../view/index.php';
     }
@@ -46,7 +36,6 @@ class dleGameController {
             $this->model->creat($name, $image, $description, $userId);
             header("Location: ". URL_QUIZZES_DISPLAY_USER);
         }else{
-            $this->displayHeader();
             require '../view/dleGame/quizzCreate.php';
         }
     }
@@ -54,7 +43,6 @@ class dleGameController {
     //affichage des quizz d'un utilisateur
     public function displayQuizzUser(){
         if(isset($_SESSION['userId'])){
-            $this->displayHeader();
             $quizzes = $this->model->readByUserId($_SESSION['userId']);
             require '../view/dleGame/quizzDisplayUser.php';
         }else{
@@ -89,7 +77,6 @@ class dleGameController {
             }
             
         }
-        $this->displayHeader();
         $quizz = $this->model->readQuizzById($_GET['quizzId']);
         require '../view/dleGame/quizzUpdate.php';
     }
@@ -101,13 +88,24 @@ class dleGameController {
             exit();
         }
         $quizz = $this->model->readQuizzById($_GET['quizzId']);
-        if(isset($_SESSION['userId']) && $_SESSION['userId'] == $quizz['USER_ID']){//refu si l'utilisateur n'est pas le createur du quizz
+        if(isset($_SESSION['userId']) && $_SESSION['userId'] == $quizz['USER_   ID']){//refu si l'utilisateur n'est pas le createur du quizz
             $this->model->deletById($_GET['quizzId']);
         }else{
             echo "error you don't own this quizz";
             exit();
         }
         header("Location: ". URL_QUIZZES_DISPLAY_USER);
+    }
+
+    public function playQuizz(){
+        if(!isset($_GET['quizzId']) && empty($_GET['quizzId'])){
+            header("Location: ". URL_QUIZZES_DISPLAY_ALL);
+            exit();
+        }
+        //$entityes = $this->model->getFullEntitesOfQuizzById($_GET['quizzId']);
+        require "../view/dleGame/quizzGame.php";
+        
+        
     }
 }
 ?>

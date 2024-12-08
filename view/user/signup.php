@@ -3,9 +3,14 @@
    <head>
       <meta charset="utf-8" />
       <title>Sign in</title>
-      <link href="style.css" rel="stylesheet" /> 
    </head>
    <body>
+      <?php
+         if(isset($_SESSION["userId"]))
+            require '../view/layout/headerLogin.php';
+         else
+            require '../view/layout/headerLogout.php';
+      ?>
     <form action="<?=URL_USER_SINGUP?>" method="post">
         <label for="pseudo">Pseudo</label>
         <input type="text" name="pseudo" required>

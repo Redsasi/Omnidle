@@ -3,9 +3,14 @@
    <head>
       <meta charset="utf-8" />
       <title>Omnidle</title>
-      <link href="style.css" rel="stylesheet" /> 
    </head>
    <body>
+      <?php
+         if(isset($_SESSION["userId"]))
+            require '../view/layout/headerLogin.php';
+         else
+            require '../view/layout/headerLogout.php';
+      ?>
       <form action="<?=URL_QUIZZES_CREATE?>" method="post" enctype="multipart/form-data">
          <label for="name">Name</label>
          <input type="text" name="name" required>

@@ -1,9 +1,12 @@
+<script type="text/javascript" src="../public/js/popup.js"></script>
 <?php
 session_start();
 // Controller frontal (Routeur)
 require_once '../helpers/routesHelper.php';
 require_once '../controllers/userController.php';
 require_once '../controllers/dleGameController.php';
+
+
 
 $userControl = new UserController();
 $dleGameControl = new dleGameController();
@@ -39,6 +42,9 @@ if (isset($_GET['action'])) {
         case ACTION_QUIZZES_DELETE:
             $dleGameControl->deleteQuizz();
             break;
+        case ACTION_QUIZZES_PLAY:
+            $dleGameControl->playQuizz();
+            break;
     
         case ACTION_QUIZZES_DISPLAY_ALL:
         default:
@@ -48,4 +54,3 @@ if (isset($_GET['action'])) {
 } else {
     $dleGameControl->index();
 }
-

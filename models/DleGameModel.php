@@ -60,5 +60,13 @@ class DleGameModel extends Model{
         $stmt->bindParam(":quizzId", $quizzId);
         $stmt->execute();
     }
+
+    public function getFullEntitesOfQuizzById($quizzId){
+        $query = "DELETE FROM " . $this->table_name . " WHERE QUIZZ_ID = :quizzId";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":quizzId", $quizzId);
+        $stmt->execute();
+
+    }
     
 }

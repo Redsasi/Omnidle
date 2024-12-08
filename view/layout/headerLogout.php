@@ -1,4 +1,3 @@
-
 <link href="../public/css/style.css" rel="stylesheet" /> 
 <header>
     <nav>
@@ -20,6 +19,7 @@
             <div class="dropdown-content">
                 <a href="<?=URL_USER_LOGIN?>">Login</a>
                 <a href="<?=URL_USER_SINGUP?>">Singup</a>
+                <button onclick="openPopup('test','corpsTest')">openPopup</button>
             </div>
         </div>
     </div>

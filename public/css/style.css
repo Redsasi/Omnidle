@@ -95,3 +95,20 @@ li.dropdown {
 .quizzDisplay img{
     height: 20em;
 }
+
+/* GAME */
+#tblEntityTry{
+    border: 1px solid black;
+}
+#tblEntityTry td{
+    border: 1px solid black;
+}
+.tryTrue{
+    background-color: greenyellow;
+}
+.tryFalse{
+    background-color: red;
+}
+.tryPartial{
+    background-color: orange;
+}
