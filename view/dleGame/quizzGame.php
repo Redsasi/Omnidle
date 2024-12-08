@@ -26,11 +26,5 @@
             </tbody>
          </table>    
       </div>
-      <div class="winDiv">
-         <button href="">x</button>
-            <h1>YOU WIN !!!</h1>
-            <p>wana retry ?</p>
-         <button href="">yes</button>
-      </div>
    </body>
 </html>

@@ -1,8 +1,3 @@
-/*
-  ('First appeared', 'Date', FALSE, 1),
-  ('Filename extensions', 'String', TRUE, 1),
-  ('Paradigme', 'String', TRUE, 1),
-  ('Auteur', 'String', TRUE, 1);*/
 const ATTIBUTTRUE = 'tryTrue';
 const ATTIBUTPARTIAL = 'tryPartial';
 const ATTIBUTFAlSE = 'tryFalse';
@@ -70,7 +65,8 @@ function playGame(){
         addTryToTable(entityTry, entitySolution);
         removeTryOption(entityTry);
     }else{
-        win();
+        addTryToTable(entityTry, entitySolution);
+        setTimeout(gameWin(), 100);
     }
 }
 
@@ -109,8 +105,6 @@ function verifAttibut(lstAttriTry, lstAttriSoluc){
     var nbCorrect = 0;
     var nbWrong = 0;
     var isPartial = false;
-
-    console.log(lstAttriTry.name);
     for(idval = 0; idval < lstValTry.length; idval++){
         if(lstValSoluc.includes(lstValTry[idval])){
             nbCorrect++;
@@ -123,9 +117,36 @@ function verifAttibut(lstAttriTry, lstAttriSoluc){
     return ATTIBUTPARTIAL;
 
 }
-function win(){
+function gameWin(){
+    console.log("WIN!!!");
+    var divWin = document.createElement('div');
+    divWin.classList.add('winDiv');
+    document.body.appendChild(divWin);
 
+    //btn close
+    var btnClose = document.createElement('button');
+    btnClose.innerText = "X";
+    btnClose.addEventListener('click',function(){
+        document.body.removeChild(divWin);
+    });
 
+    //Corps of Win div
+    divWin.appendChild(btnClose);
+    var H1 = document.createElement('H1');
+    H1.innerText = "YOU WIN !!!";
+    divWin.appendChild(H1);
+    var p = document.createElement('p');
+    p.innerText = "wana retry ?";
+    divWin.appendChild(p);
+
+    //btn to retry
+    var btnRetry = document.createElement('button');
+    btnRetry.innerText = "yes";
+    btnRetry.addEventListener('click',function(){
+        document.body.removeChild(divWin);
+        initGame();
+    });
+    divWin.appendChild(btnRetry);
 }
 
 function removeTryOption(entityTry){
