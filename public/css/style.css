@@ -97,10 +97,7 @@ li.dropdown {
 }
 
 /* GAME */
-#tblEntityTry{
-    border: 1px solid black;
-}
-#tblEntityTry td{
+#tblTry, #tblTry th,#tblTry td {
     border: 1px solid black;
 }
 .tryTrue{

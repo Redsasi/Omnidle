@@ -38,7 +38,6 @@ function initGame(){
     var option = document.createElement('option');
     option.innerText = "--Please choose an option--";
     entityInput.appendChild(option);
-
     getAllEntity().forEach(entity => {
         var option = document.createElement('option');
         option.value = entity.ENTITY_ID;
@@ -46,11 +45,25 @@ function initGame(){
         entityInput.appendChild(option);
     });
 
-    //set game play
-    document.getElementById("input").addEventListener('click',playGame);
+    //reset table try
+    var table =  document.getElementById("tblTry");
+    table.innerHTML = '';
+    var thead = document.createElement('thead');
+    table.appendChild(thead);
 
-    //remove try
-    document.getElementById("EntityTry").innerHTML = '';
+    //name
+    var th = document.createElement('th');
+    th.innerText = "name";
+    thead.appendChild(th);
+
+    //other attribut
+    getAllAttributs().forEach(att => {
+        var th = document.createElement('th');
+        th.innerText = att;
+        thead.appendChild(th);
+    });
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
 
     //get solution
     idSolution = InitSolution();
@@ -61,6 +74,7 @@ function playGame(){
     var TryId = document.getElementById("entityInput").value
     var entityTry = getEntityById(TryId);
     var entitySolution = getEntityById(idSolution);
+
     if(entityTry.ENTITY_ID != entitySolution.ENTITY_ID){
         addTryToTable(entityTry, entitySolution);
         removeTryOption(entityTry);
@@ -77,7 +91,8 @@ function getEntityById(id){
 
 //add in the table the entity tried
 function addTryToTable(entityTry, entitySolution){
-    let tbody = document.getElementById("EntityTry");
+    var table =  document.getElementById("tblTry");
+    let tbody = table.getElementsByTagName('tbody')[0];
     let tr = document.createElement('tr');
     tbody.appendChild(tr);
     let tdName = document.createElement('td');
@@ -117,7 +132,6 @@ function verifAttibut(lstAttriTry, lstAttriSoluc){
 
 }
 function gameWin(){
-    console.log("WIN!!!");
     var divWin = document.createElement('div');
     divWin.classList.add('winDiv');
     document.body.appendChild(divWin);
@@ -164,6 +178,12 @@ function InitSolution(){
 function getAllEntity(){
     return lst_entity;
 }
+
+//Fet all attribut of the quizz
+function getAllAttributs(){
+    return ['First appeared','Filename extensions','Paradigme','Auteur'];
+}
+
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);

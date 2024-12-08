@@ -17,13 +17,9 @@
             <select name="entityInput" id="entityInput">
                <option value="">--Please choose an option--</option>
             </select>
-            <button id="input">ok</button>
+            <button onclick="playGame()">ok</button>
          </div>
-         <table id="tblEntityTry">
-            <thead><td>Name</td><td>First appeared</td><td>Filename extensions</td><td>Paradigme</td><td>Auteur</td></thead>
-            <tbody id="EntityTry">
-               <tr><td>JAVA</td><td class="tryTrue">1995</td><td class="tryFalse">.java, .class, .jar, .jad, .jmod</td><td class="tryPartial">orienté objet, impératif, Structuré, générique'</td><td class="tryFalse">Oracle Corporation</td></tr>
-            </tbody>
+         <table id="tblTry">
          </table>    
       </div>
    </body>
