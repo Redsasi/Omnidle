@@ -55,8 +55,9 @@ function initGame(){
     document.getElementById("input").addEventListener('click',playGame);
 
     //remove try
+    document.getElementById("EntityTry").innerHTML = '';
 
-    //
+    //get solution
     idSolution = InitSolution();
 }
 
