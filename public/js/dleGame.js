@@ -33,12 +33,17 @@ lst_entity.push(
             {'name':'Auteur','values':['Rasmus Lerdorf']}
         ]}
 );
-let idSolution = InitSolution();
-console.log("THE SOLUTION IS " + idSolution);
+let idSolution;
 //Init game
 function initGame(){
     //Set entity input
     let entityInput = document.getElementById("entityInput");
+    entityInput.innerHTML = '';
+
+    var option = document.createElement('option');
+    option.innerText = "--Please choose an option--";
+    entityInput.appendChild(option);
+
     getAllEntity().forEach(entity => {
         var option = document.createElement('option');
         option.value = entity.ENTITY_ID;
@@ -46,8 +51,13 @@ function initGame(){
         entityInput.appendChild(option);
     });
 
-    //set try
+    //set game play
     document.getElementById("input").addEventListener('click',playGame);
+
+    //remove try
+
+    //
+    idSolution = InitSolution();
 }
 
 //Play
@@ -59,7 +69,7 @@ function playGame(){
         addTryToTable(entityTry, entitySolution);
         removeTryOption(entityTry);
     }else{
-
+        win();
     }
 }
 
@@ -113,6 +123,7 @@ function verifAttibut(lstAttriTry, lstAttriSoluc){
 
 }
 function win(){
+
 
 }
 
