@@ -104,7 +104,6 @@ function verifAttibut(lstAttriTry, lstAttriSoluc){
 
     var nbCorrect = 0;
     var nbWrong = 0;
-    var isPartial = false;
     for(idval = 0; idval < lstValTry.length; idval++){
         if(lstValSoluc.includes(lstValTry[idval])){
             nbCorrect++;
