@@ -1,4 +1,3 @@
-<script type="text/javascript" src="../public/js/popup.js"></script>
 <?php
 session_start();
 // Controller frontal (Routeur)
