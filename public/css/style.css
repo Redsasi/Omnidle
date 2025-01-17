@@ -78,6 +78,13 @@ li.dropdown {
     align-items: center;
 }
 
+.quizzPage button{
+    font-size: 6em;
+    aspect-ratio: 1 / 2;
+    margin: auto;
+}
+
+
 .displayQuizzes{
     margin: auto;
     width: 85%;

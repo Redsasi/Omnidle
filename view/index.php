@@ -27,7 +27,6 @@
             </a>
          <?php endforeach; ?>
       </div>
-
       <button>&#9654;</button>
    </div>
    <script>

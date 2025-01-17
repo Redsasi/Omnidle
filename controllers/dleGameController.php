@@ -121,7 +121,7 @@ class dleGameController
         if (isset($_GET["page"]) && !empty($_GET["page"])) {
             $page = $_GET["page"];
         }
-        $NbElementByPage = 10;
+        $NbElementByPage = 8;
         $start = ($NbElementByPage * ($page - 1));
         $end = $start + $NbElementByPage;
         $quizzes = $this->model->readBetween($start, $end);
