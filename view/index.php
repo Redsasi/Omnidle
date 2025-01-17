@@ -15,7 +15,7 @@
    ?>
    <h1>MENU PRINCIPAL</h1>
    <div class="quizzPage">
-      <button>&#9664;</button>
+      <button onclick="pageDown()">&#9664;</button>
       <div class="displayQuizzes" id="displayQuizzes">
          <?php foreach ($quizzes as $quizz): ?>
             <a href="<?= URL_QUIZZES_PLAY ?>&quizzId=<?= $quizz["QUIZZ_ID"] ?>">
@@ -27,17 +27,21 @@
             </a>
          <?php endforeach; ?>
       </div>
-      <button>&#9654;</button>
+      <button onclick="pageUp()">&#9654;</button>
    </div>
    <script>
       var numPage = 1;
 
       function pageUp() {
          numPage++;
+         displayPage();
       }
 
       function pageDown() {
-         if (numPage > 1) {}
+         if (numPage > 1) {
+            numPage--;
+            displayPage()
+         }
       }
 
       function addQuizz(quizz) {
@@ -67,10 +71,10 @@
       }
 
       function displayPage() {
-         document.getElementById("displayQuizzes").innerHTML = '';
          var xhr = new XMLHttpRequest();
          xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("displayQuizzes").innerHTML = '';
                listQuizzes = JSON.parse(xhr.responseText);
                listQuizzes.forEach((e) => addQuizz(e));
             }
