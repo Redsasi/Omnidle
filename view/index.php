@@ -14,19 +14,6 @@
       require '../view/layout/headerLogout.php';
    ?>
    <h1>MENU PRINCIPAL</h1>
-<<<<<<< HEAD
-   <div class="displayQuizzes">
-      <?php foreach ($quizzes as $quizz): ?>
-         <a href="<?= URL_QUIZZES_PLAY ?>&quizzId=<?= htmlspecialchars($quizz["QUIZZ_ID"]) ?>">
-            <div class="quizzDisplay">
-               <h1><?= htmlspecialchars($quizz['QUIZZ_NAME']) ?></h1>
-               <img src="data:image/png;base64,<?= base64_encode($quizz["QUIZZ_IMAGE"]) ?>" alt="<?= htmlspecialchars($quizz['QUIZZ_NAME']) ?>">
-               <p><?= htmlspecialchars($quizz['QUIZZ_DESCRIPTION']) ?></p>
-            </div>
-         </a>
-      <?php endforeach; ?>
-   </div>
-=======
    <div class="quizzPage">
       <button onclick="pageDown()">&#9664;</button>
       <div class="displayQuizzes" id="displayQuizzes">
@@ -98,7 +85,6 @@
       }
       displayPage();
    </script>
->>>>>>> 5602791d5107986fb9e56664fb7146ec1a77feb3
 </body>
 
 </html>
