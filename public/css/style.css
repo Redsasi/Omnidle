@@ -73,12 +73,26 @@ li.dropdown {
 } 
 
 /* Display quizz*/
+.quizzPage{
+    display:flex;
+    align-items: center;
+    height: 100%;
+}
+
+.quizzPage button{
+    font-size: 6em;
+    aspect-ratio: 1 / 2;
+    margin: auto;
+}
+
+
 .displayQuizzes{
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: 85%;
+    height: 90%;
     display: flex;
-    
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1em;
     
 }
@@ -93,7 +107,7 @@ li.dropdown {
     width: 20em;
 }
 .quizzDisplay img{
-    height: 20em;
+    height: 10em;
 }
 
 /* GAME */
