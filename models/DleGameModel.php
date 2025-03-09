@@ -4,7 +4,7 @@ require_once '../models/model.php';
 class DleGameModel extends Model{
     private $table_name = "OD_QUIZZ";
 
-    public function creat($name, $image, $description , $userId){        
+    public function creat($name, $image, $description , $userId){
         $query = "INSERT INTO " . $this->table_name . " (QUIZZ_NAME, QUIZZ_IMAGE, QUIZZ_DESCRIPTION, USER_ID) VALUES (:name, :image, :description, :userId )";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":name", $name);
@@ -20,6 +20,7 @@ class DleGameModel extends Model{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function readQuizzById($quizzId){
         $query = "SELECT * FROM " . $this->table_name . " WHERE QUIZZ_ID = :quizzId";
         $stmt = $this->db->prepare($query);
@@ -66,7 +67,7 @@ class DleGameModel extends Model{
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":quizzId", $quizzId);
         $stmt->execute();
-
     }
+
     
 }

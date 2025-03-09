@@ -104,8 +104,25 @@ class dleGameController {
         }
         //$entityes = $this->model->getFullEntitesOfQuizzById($_GET['quizzId']);
         require "../view/dleGame/quizzGame.php";
-        
-        
+    }
+
+    public function manageQuizz(){
+        if(!isset($_GET['quizzId']) && empty($_GET['quizzId'])){
+            header("Location: ". URL_QUIZZES_DISPLAY_ALL);
+            exit();
+        }
+        if($this->userIsOwner($_GET['quizzId'])){
+            require "../view/dleGame/quizzManager.php";
+        }else{
+            echo "error you don't own this quizz";
+            exit();
+        }
+    }
+
+    /* FONCTION D'UTILITAIRE D'ACTION */
+    public function userIsOwner($idQuizz){
+        $quizz = $this->model->readQuizzById($idQuizz);
+        return isset($_SESSION['userId']) && $quizz['USER_ID'] == $idQuizz;
     }
 }
 ?>

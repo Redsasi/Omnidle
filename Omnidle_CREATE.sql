@@ -50,6 +50,15 @@ CREATE TABLE OD_ENTITY (
 );
 
 
+# -----------------------------------------------------------------------------
+#       TABLE :  OD_TYPE
+# -----------------------------------------------------------------------------
+CREATE TABLE OD_TYPE (
+  TYPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+  TYPE_NAME VARCHAR(50) NOT NULL,
+  PRIMARY KEY (ATTRI_ID)
+);
+
 
 # -----------------------------------------------------------------------------
 #       TABLE :  OD_ATTRIBUT
@@ -57,11 +66,12 @@ CREATE TABLE OD_ENTITY (
 CREATE TABLE OD_ATTRIBUT (
   ATTRI_ID INTEGER NOT NULL AUTO_INCREMENT,
   ATTRI_NAME VARCHAR(100) NOT NULL,
-  ATTRI_TYPE VARCHAR(50) NOT NULL,
-  ATTRI_ISMULTIPLE BOOLEAN,
+  TYPE_ID INTEGER NOT NULL,
+  ATTRI_MULTIPLE BOOLEAN,
   QUIZZ_ID INTEGER NOT NULL,
   PRIMARY KEY (ATTRI_ID),
-  FOREIGN KEY (QUIZZ_ID) REFERENCES OD_QUIZZ(QUIZZ_ID) 
+  FOREIGN KEY (QUIZZ_ID) REFERENCES OD_QUIZZ(QUIZZ_ID),
+  FOREIGN KEY (TYPE_ID) REFERENCES OD_TYPE(TYPE_ID) 
 );
 
 

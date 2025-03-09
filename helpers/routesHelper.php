@@ -20,6 +20,7 @@ define('ACTION_QUIZZES_DISPLAY_USER', "DisplayQuizzUser");
 define('ACTION_QUIZZES_UPDATE', "updateQuizz");
 define('ACTION_QUIZZES_DELETE', "deleteQuizz");
 define('ACTION_QUIZZES_PLAY', "playQuizz");
+define('ACTION_QUIZZES_MANAGE', "manageQuizz");
 
 define('URL_QUIZZES_CREATE', $routerURL . 'action=' . ACTION_QUIZZES_CREATE);
 define('URL_QUIZZES_DISPLAY_ALL', $routerURL . 'action=' . ACTION_QUIZZES_DISPLAY_ALL);
@@ -27,6 +28,7 @@ define('URL_QUIZZES_DISPLAY_USER', $routerURL . 'action=' . ACTION_QUIZZES_DISPL
 define('URL_QUIZZES_UPDATE', $routerURL . 'action=' . ACTION_QUIZZES_UPDATE);
 define('URL_QUIZZES_DELETE', $routerURL . 'action=' . ACTION_QUIZZES_DELETE);
 define('URL_QUIZZES_PLAY', $routerURL . 'action=' . ACTION_QUIZZES_PLAY);
+define('URL_QUIZZES_MANAGE', $routerURL . 'action=' . ACTION_QUIZZES_MANAGE);
 
 
 function getRootUrl() {

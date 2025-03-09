@@ -1,4 +1,3 @@
-<script type="text/javascript" src="../public/js/popup.js"></script>
 <?php
 session_start();
 // Controller frontal (Routeur)
@@ -44,6 +43,10 @@ if (isset($_GET['action'])) {
             break;
         case ACTION_QUIZZES_PLAY:
             $dleGameControl->playQuizz();
+            break;
+
+        case ACTION_QUIZZES_MANAGE:
+            $dleGameControl->manageQuizz();
             break;
     
         case ACTION_QUIZZES_DISPLAY_ALL:

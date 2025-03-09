@@ -80,12 +80,15 @@ function playGame(){
         removeTryOption(entityTry);
     }else{
         addTryToTable(entityTry, entitySolution);
-        setTimeout(gameWin(), 100);
+        setTimeout(gameWin, 2000);
     }
 }
 
 function getEntityById(id){
-    const entity = getAllEntity().find(e => e.ENTITY_ID == id);
+    const entity = getAllEntity().find(function(e){
+        return e.ENTITY_ID == id ;
+    });
+    //const entity = getAllEntity().find(e => e.ENTITY_ID == id);
     return entity || null;
 }
 
@@ -132,6 +135,7 @@ function verifAttibut(lstAttriTry, lstAttriSoluc){
 
 }
 function gameWin(){
+    alert("APPELE");
     var divWin = document.createElement('div');
     divWin.classList.add('winDiv');
     document.body.appendChild(divWin);

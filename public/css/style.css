@@ -128,3 +128,26 @@ li.dropdown {
 .winDiv button{
     width: fit-content;
 }
+
+/* quizz manageer*/
+.quizzManager{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+.quizzManager tr{
+    flex:1;
+    display: flex;
+    border: 2px solid black;
+}
+
+.quizzManager td{
+    flex:1;
+    border: 2px solid black;
+}

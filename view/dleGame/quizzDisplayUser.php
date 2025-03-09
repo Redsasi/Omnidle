@@ -20,6 +20,7 @@
             <p><?=$quizz['QUIZZ_DESCRIPTION']?></p>
             <div class="quizzAction">
                <a href="<?=URL_QUIZZES_UPDATE?>&quizzId=<?=$quizz["QUIZZ_ID"]?>"><button>Update</button></a>
+               <a href="<?=URL_QUIZZES_MANAGE?>&quizzId=<?=$quizz["QUIZZ_ID"]?>"><button>Manage</button></a>
                <a href="<?=URL_QUIZZES_DELETE?>&quizzId=<?=$quizz["QUIZZ_ID"]?>"><button>Delete</button></a>
             </div>
          </div>

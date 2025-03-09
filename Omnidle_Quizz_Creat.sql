@@ -1,15 +1,15 @@
 
 USE OMNIDLE;
-insert into od_user (`USER_PSEUDO`, `USER_EMAIL`, `USER_TPAUTH`, `USER_PASSWORD`)
+INSERT INTO OD_USER (`USER_PSEUDO`, `USER_EMAIL`, `USER_TPAUTH`, `USER_PASSWORD`)
 values 
   ('Test', 'test@test.test', NULL, '$2y$10$cWDxjitSrx9MG9EbG0aa/ujji1XxWpX6jZhXCkkE.83NZS6yGXOEa');
 /* TITLE OF THE QUIZZ*/
-insert into od_quizz (`QUIZZ_NAME`, `QUIZZ_DESCRIPTION`, `USER_ID`)
+INSERT INTO OD_QUIZZ (`QUIZZ_NAME`, `QUIZZ_DESCRIPTION`, `USER_ID`)
 values
   ('Programming language', 'TO DO', 1);
 
 /* ALL THE ATTRIBUTS */
-insert into  od_attribut (`ATTRI_NAME`, `ATTRI_TYPE`, `ATTRI_ISMULTIPLE`, `QUIZZ_ID`)
+INSERT INTO  OD_ATTRIBUT (`ATTRI_NAME`, `ATTRI_TYPE`, `ATTRI_ISMULTIPLE`, `QUIZZ_ID`)
 values
   ('First appeared', 'Date', FALSE, 1),
   ('Filename extensions', 'String', TRUE, 1),
@@ -17,11 +17,11 @@ values
   ('Auteur', 'String', TRUE, 1);
 
 /* Insert C# */
-insert into od_entity (`ENTITY_NAME`, `ENTITY_IMAGE`, `QUIZZ_ID`)
+INSERT INTO OD_ENTITY (`ENTITY_NAME`, `ENTITY_IMAGE`, `QUIZZ_ID`)
 values
   ('C#', NULL, 1);
 
-insert into od_value (`VAL_VALEUR`, `ATTRI_ID`)
+INSERT INTO OD_VALUE (`VAL_VALEUR`, `ATTRI_ID`)
 values
   ('2001', 1),
   ('.cs', 2),
@@ -31,7 +31,7 @@ values
   ('Microsoft', 4);
 
 
-insert into od_entity_value (`VAL_ID`, `ENTITY_ID`)
+INSERT INTO OD_ENTITY_VALUE (`VAL_ID`, `ENTITY_ID`)
 values
   (1, 1),
   (2, 1),
@@ -42,11 +42,11 @@ values
 
 
 /* Insert Java */
-insert into od_entity (`ENTITY_NAME`, `ENTITY_IMAGE`, `QUIZZ_ID`)
+INSERT INTO OD_ENTITY (`ENTITY_NAME`, `ENTITY_IMAGE`, `QUIZZ_ID`)
 values
   ('Java', NULL, 1);
 
-insert into od_value (`VAL_VALEUR`, `ATTRI_ID`)
+INSERT INTO OD_VALUE (`VAL_VALEUR`, `ATTRI_ID`)
 values
   ('1995', 1),
   ('.java', 2),
@@ -58,7 +58,7 @@ values
   ('générique', 3),
   ('Oracle Corporation', 4);
   
-insert into od_entity_value (`VAL_ID`, `ENTITY_ID`)
+INSERT INTO OD_ENTITY_VALUE (`VAL_ID`, `ENTITY_ID`)
 values
   (7, 2),
   (8, 2),
@@ -73,11 +73,11 @@ values
   (15, 2);
 
 /* Insert PHP */
-insert into od_entity (`ENTITY_NAME`, `ENTITY_IMAGE`, `QUIZZ_ID`)
+INSERT INTO OD_ENTITY (`ENTITY_NAME`, `ENTITY_IMAGE`, `QUIZZ_ID`)
 values
   ('PHP', NULL, 1);
 
-insert into od_value (`VAL_VALEUR`, `ATTRI_ID`)
+INSERT INTO OD_VALUE (`VAL_VALEUR`, `ATTRI_ID`)
 values
   ('.php', 2),
   ('.phar', 2),
@@ -86,7 +86,7 @@ values
   ('interprété', 3),
   ('Rasmus Lerdorf', 4);
   
-insert into od_entity_value (`VAL_ID`, `ENTITY_ID`)
+INSERT INTO OD_ENTITY_VALUE (`VAL_ID`, `ENTITY_ID`)
 values
   (7, 3),
   (16, 3),
@@ -102,17 +102,17 @@ values
   (21, 3);
 
   /*
-  SELECT od_entity.ENTITY_ID, od_entity.ENTITY_NAME, od_entity.ENTITY_IMAGE, GROUP_CONCAT(,od_value.VAL_VALEUR), od_attribut.ATTRI_NAME  FROM `od_entity`
-	JOIN `od_entity_value` ON `od_entity_value`.ENTITY_ID = `od_entity`.`ENTITY_ID`
-    JOIN `od_value` on `od_value`.`VAL_ID` = `od_entity_value`.`VAL_ID`
-    JOIN `od_attribut` ON `od_attribut`.`ATTRI_ID` = `od_value`.`ATTRI_ID`
-	WHERE `od_entity`.`ENTITY_ID` = 2
+  SELECT OD_ENTITY.ENTITY_ID, OD_ENTITY.ENTITY_NAME, OD_ENTITY.ENTITY_IMAGE, GROUP_CONCAT(,OD_VALUE.VAL_VALEUR), od_attribut.ATTRI_NAME  FROM `OD_ENTITY`
+	JOIN `OD_ENTITY_VALUE` ON `OD_ENTITY_VALUE`.ENTITY_ID = `OD_ENTITY`.`ENTITY_ID`
+    JOIN `OD_VALUE` on `OD_VALUE`.`VAL_ID` = `OD_ENTITY_VALUE`.`VAL_ID`
+    JOIN `od_attribut` ON `od_attribut`.`ATTRI_ID` = `OD_VALUE`.`ATTRI_ID`
+	WHERE `OD_ENTITY`.`ENTITY_ID` = 2
 	GROUP BY od_attribut.ATTRI_ID;
   */
 
   /*
   SELECT * FROM od_attribut 
-	JOIN od_value ON od_value.ATTRI_ID = od_attribut.ATTRI_ID
-    JOIN od_entity_value ON od_entity_value.VAL_ID = od_value.VAL_ID
-	WHERE od_entity_value.ENTITY_ID = 1;
+	JOIN OD_VALUE ON OD_VALUE.ATTRI_ID = od_attribut.ATTRI_ID
+    JOIN OD_ENTITY_VALUE ON OD_ENTITY_VALUE.VAL_ID = OD_VALUE.VAL_ID
+	WHERE OD_ENTITY_VALUE.ENTITY_ID = 1;
   */
